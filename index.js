@@ -1,13 +1,6 @@
 const express = require("express");
-// const db = require("./configs/dbconfig");
 const app = express();
 const port = 3002;
-// const body = require('body-parser');
-// var cors = require('cors');
-const { request } = require("express");
-// app.use(cors())
-// app.use(body.json({limit: "50mb"}));
-// app.use(body.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
 var MongoClient = require("mongodb").MongoClient;
 var url = "mongodb+srv://ruchitraj:FIW8H6wrY2DulPEO@cluster0-7ho5h.mongodb.net/Author_Ruchit?retryWrites=true&w=majority";
@@ -70,8 +63,6 @@ MongoClient.connect(url, function (err, db) {
   });
 
   app.get("/task1", function (req, res) {
-    // console.log("n req", req);
-    // const awardNumber = req.params.n
     if (err) throw err;
     var dbo = db.db("Author_Ruchit");
     dbo
