@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3002;
 
+
 var MongoClient = require("mongodb").MongoClient;
 var url = "mongodb+srv://ruchitraj:FIW8H6wrY2DulPEO@cluster0-7ho5h.mongodb.net/Author_Ruchit?retryWrites=true&w=majority";
 var moment = require("moment");
@@ -62,7 +63,10 @@ MongoClient.connect(url, function (err, db) {
     });
   });
 
+  //Task:1 - Create GET api to fetch authors who have greater than or equal to n awards
+
   app.get("/task1", function (req, res) {
+    // console.log("n req", req);
     if (err) throw err;
     var dbo = db.db("Author_Ruchit");
     dbo
@@ -74,6 +78,8 @@ MongoClient.connect(url, function (err, db) {
         console.log("record fetched: ", result);
       });
   });
+
+  //TASK2: Create GET api to fetch authors who have won award where year >= y
 
   app.get("/task2", function (req, res) {
     console.log("n req", req);
@@ -89,6 +95,7 @@ MongoClient.connect(url, function (err, db) {
       });
   });
 
+  //TASK3: Create GET api to fetch total number of books sold and total profit by each author.
   app.get("/task3", function (req, res) {
     console.log("n req", req);
     if (err) throw err;
@@ -114,6 +121,8 @@ MongoClient.connect(url, function (err, db) {
       });
   });
 
+  //TASK4: Create GET api which accepts parameter birthDate and totalPrice, where birthDate is
+// date string and totalPrice is number.
   app.get("/task4", function (req, res) {
     console.log("n req", req);
     if (err) throw err;
